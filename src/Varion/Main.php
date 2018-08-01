@@ -3,6 +3,7 @@
 namespace Varion;
 
 use pocketmine\event\player\cheat\PlayerCheatEvent;
+use pocketmine\event\player\cheat\PlayerIllegalMoveEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\Player;
@@ -23,6 +24,11 @@ class Main extends PluginBase implements Listener
     }
 
     public function onMovement(PlayerCheatEvent $e)
+    {
+        $e->setCancelled();
+    }
+    
+    public function onIllegalMovement(PlayerIllegalMoveEvent $e)
     {
         $e->setCancelled();
     }
